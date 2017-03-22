@@ -1,0 +1,47 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="view_pos_pos_form_inherited">
+      <field name="name">pos_fisc.view.pos.pos.form</field>
+      <field name="model">pos.order</field>
+	  <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+      <field name="arch" type="xml">
+		<xpath expr="//field[@name='date_order']" position="after">
+			<field name="x_datumvrijeme_izdavanja"/>
+			<field name="x_ZKI_broj"/>
+			<field name="x_JIR_broj"/>
+			<field name="x_fiskalni_broj_naloga"/>
+        </xpath>
+      </field>
+    </record>
+	
+	<record model="ir.ui.view" id="view_pos_order_tree_inherited">
+      <field name="name">pos_fisc_inherited</field>
+      <field name="model">pos.order</field>
+	  <field name="inherit_id" ref="point_of_sale.view_pos_order_tree"/>
+      <field name="arch" type="xml">
+        <field name="date_order" position="after">
+			<field name="x_datumvrijeme_izdavanja"/>
+			<field name="x_ZKI_broj"/>
+			<field name="x_JIR_broj"/>
+			<field name="x_fiskalni_broj_naloga"/>
+		</field>
+      </field>
+    </record>
+	
+	<record model="ir.ui.view" id="view_pos_order_filter_inherited">
+      <field name="name">pos_fisc_inherited</field>
+      <field name="model">pos.order</field>
+	  <field name="inherit_id" ref="point_of_sale.view_pos_order_filter"/>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+			<field name="x_fiskalni_broj_naloga" />
+		</field>
+      </field>
+    </record>
+    
+
+
+  </data>
+</odoo>
